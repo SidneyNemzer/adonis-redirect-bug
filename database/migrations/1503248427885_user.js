@@ -6,9 +6,12 @@ class UserSchema extends Schema {
   up () {
     this.create('users', table => {
       table.increments()
-      table.string('username', 80).notNullable().unique()
-      table.string('email', 254).notNullable().unique()
-      table.string('password', 60).notNullable()
+      // These two fields uniquely identify a user amoung all providers
+      table.string('provider').notNullable()
+      table.string('provider_id').notNullable()
+      
+      table.string('name', 80).nullable()
+      table.string('email', 254).nullable()
       table.timestamps()
     })
   }
