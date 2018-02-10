@@ -8,8 +8,12 @@
 <body>
   <section>
     <div class="logo"></div>
-    <div class="title"></div>
-    <div class="subtitle"><p>AdonisJs simplicity will make you feel confident about your code</p></div>
+    @loggedIn
+    <h3>You are logged in as {{ auth.user.name }}</h3>
+    <a href="/logout">Logout</a>
+    @else
+    <a href="/authenticate/google">Login with Google</a>
+    @endloggedIn
   </section>
 </body>
 </html>

@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<body>
+<div>
+@loggedIn
+You are logged in as {{ auth.user.name }}
+@else
+You are not logged in
+@endloggedIn
+</div>
+<a href="/">Home</a>
+</body>
+</html>
