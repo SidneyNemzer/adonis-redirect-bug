@@ -1,5 +1,7 @@
 # Adonis Redirect Bug
 
+**Update:** *This only seems to be a problem in Chrome*
+
 This repo demonstrates a bug that seems to cause the session to be reset after redirecting
 from the handler for an ally oauth callback.
 
@@ -24,10 +26,16 @@ redirected back to `/check-auth` where "You are not logged in" is displayed.
 
 Notice that the logs from the server show the client was given a new session.
 
-Next, open the file `start/routes`. Comment out line 55 and uncomment line 57.
+## Possible Solutions
+
+* Use a client-side redirect
+
+Open the file `start/routes`. Comment out line 55 and uncomment line 57.
 
 Visit the index page again and try the Google login. Upon being redirected, you should
 see "You are logged in as <name>".
+  
+* Set `sameSite: false` in `config/session.js`
 
 ## How this repo was created
 
